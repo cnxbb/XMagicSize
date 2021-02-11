@@ -154,11 +154,21 @@ var XMagicSize = {
 
             var bglpx = $(this).attr('bglpx');
             var bgtpx = $(this).attr('bgtpx');
-            if( $.isNumeric( bglpx ) || $.isNumeric( bgtpx ) ) {
-                var strl = parseInt( bglpx * xs ) + 'px'; 
-                var strt = parseInt( bgtpx * xs ) + 'px';
+            var strl, strt;
+            if( bglpx || bgtpx ) {
+                if( $.isNumeric( bglpx ) ) {
+                    strl = parseInt( bglpx * xs ) + 'px'; 
+                } else {
+                    strl = bglpx; 
+                }
+                if( $.isNumeric( bgtpx ) ) {
+                    strt = parseInt( bgtpx * xs ) + 'px'; 
+                } else {
+                    strt = bgtpx;
+                }
                 $(this).css('background-position', strl + ' ' + strt);
             }
+            
 
             var bgrepeat = $(this).attr('bgrepeat');
             if( bgrepeat != '' ) {
@@ -179,7 +189,7 @@ var XMagicSize = {
             }
             var minh = $(this).attr('rh-min');
             if( $.isNumeric( minh ) || $.isNumeric( minh ) ) {
-                $(this).css('min-width', minh * xs + 'px' );
+                $(this).css('min-height', minh * xs + 'px' );
             }
 
             //CSS三角形处理
@@ -199,6 +209,150 @@ var XMagicSize = {
             if( $.isNumeric( trbbw ) || $.isNumeric( trbbw ) ) {
                 $(this).css('border-bottom-width', trbbw * xs + 'px' );
             }
+
+            //border-width
+            var rbw = parseInt( $(this).attr('rbw') );
+            if( $.isNumeric( rbw ) ) {
+                $(this).css('border-width', parseInt( rbw * xs ) + 'px' );
+            }
+
+            //多列宽度
+            var cgap = parseInt( $(this).attr('cgap') );
+            if( $.isNumeric( cgap ) ) {
+                $(this).css('-moz-column-gap', parseInt( cgap * xs ) + 'px' );
+                $(this).css('-webkit-column-gap', parseInt( cgap * xs ) + 'px' );
+                $(this).css('column-gap', parseInt( cgap * xs ) + 'px' );
+            }
+
+            //属性计算  
+            var calcnum = parseInt( $(this).attr('data-calcnum') );
+            if( $.isNumeric( calcnum ) ) {
+                for( var i=0; i<calcnum; i++ ) {
+                    var attrname = 'data-calc' + i;
+                    var v = parseInt( $(this).attr(attrname) );
+                    if( $.isNumeric( calcnum ) ) {
+                        $(this).attr( attrname, v * xs );
+                    }
+                }
+            }
+
+            
+
+
         } );
+    },
+    'calc' : function( val ) {
+        var xs = document.documentElement.clientWidth / this.Raw_Width;
+        return parseInt( val * xs );
+    },
+    'tostylesheet' : function( selector ) {
+        var xs = document.documentElement.clientWidth / this.Raw_Width;
+        var el = $(selector);
+        if( el.length == 0 ) {
+            return;
+        }
+        var name = $.trim( el.attr('data-name') );
+        if( name.length < 1 ) {
+            return;
+        }
+        styleElement = document.createElement('style');
+        styleElement.type = 'text/css';
+        var st = name + ' {';
+        
+        var attrmap = {
+            'data-width'    : 'width',
+            'data-height'   : 'height',
+            'data-padding'  : 'padding',
+            'data-pl'       : 'padding-left',
+            'data-pr'       : 'padding-right',
+            'data-pt'       : 'padding-top',
+            'data-pb'       : 'padding-bottom',
+            'data-margin'   : 'margin',
+            'data-ml'       : 'margin-left',
+            'data-mr'       : 'margin-right',
+            'data-mt'       : 'margin-top',
+            'data-mb'       : 'margin-bottom',
+            'data-lh'       : 'line-height',
+            'data-fs'       : 'font-size',
+            'data-rl'       : 'left',
+            'data-rr'       : 'right',
+            'data-rt'       : 'top',
+            'data-rb'       : 'bottom',
+            'data-br'       : 'border-radius',
+            'data-btlr'     : 'border-top-left-radius',
+            'data-btrr'     : 'border-top-right-radius',
+            'data-bblr'     : 'border-bottom-left-radius',
+            'data-bbrr'     : 'border-bottom-right-radius',
+            'data-color'    : 'color',    
+            'data-position' : 'position',    
+            'data-bgpos'    : 'background-position',    
+            'none' : ''
+        };
+        for( k in attrmap ) {
+            if( k == 'none' )  continue;
+            var val = el.attr(k);    
+            if( typeof( val ) != 'undefined' ) {
+                if( val.toString().indexOf('%') != -1 ) {
+                    st += attrmap[k] + ' : ' + parseInt( val ) * xs + "%;\n";
+                } else if( $.isNumeric( val ) ) {
+                    st += attrmap[k] + ' : ' + parseInt( val ) * xs + "px;\n";
+                } else {
+                    st += attrmap[k] + ' : ' + val + "\n";
+                }
+            }
+        }
+
+        //background-size
+        var bgw='', bgh='';
+        var bg_size_w = el.attr('data-bgsize-w');
+        var bg_size_h = el.attr('data-bgsize-h');
+        if(  typeof( bg_size_w ) != 'undefined' && typeof( bg_size_h ) != 'undefined' ) {
+            if( bg_size_w.toString().indexOf('%') != -1 ) {
+                bgw = parseInt( bg_size_w ) * xs + "%";
+            } else if( $.isNumeric( bg_size_w ) ) {
+                bgw = parseInt( bg_size_w ) * xs + "px";
+            } else {
+                bgw = bg_size_w;
+            }    
+        
+            if( bg_size_h.toString().indexOf('%') != -1 ) {
+                bgh = parseInt( bg_size_h ) * xs + "%";
+            } else if( $.isNumeric( bg_size_h ) ) {
+                bgh = parseInt( bg_size_h ) * xs + "px";
+            } else {
+                bgh = bg_size_h;
+            }    
+            st += 'background-size: ' + bgw + ' ' + bgh + ";\n";
+        }
+        
+        //background-position
+        var bgpw='', bgph='';
+        var bg_pos_w = el.attr('data-bgpos-w');
+        var bg_pos_h = el.attr('data-bgpos-h');
+        if(  typeof( bg_pos_w ) != 'undefined' && typeof( bg_pos_h ) != 'undefined' ) {
+            if( bg_pos_w.toString().indexOf('%') != -1 ) {
+                bgpw = parseInt( bg_pos_w ) * xs + "%";
+            } else if( $.isNumeric( bg_pos_w ) ) {
+                bgpw = parseInt( bg_pos_w ) * xs + "px";
+            } else {
+                bgpw = bg_pos_w;
+            }   
+            
+            if( bg_pos_h.toString().indexOf('%') != -1 ) {
+                bgph = parseInt( bg_pos_h ) * xs + "%";
+            } else if( $.isNumeric( bg_pos_h ) ) {
+                bgph = parseInt( bg_pos_h ) * xs + "px";
+            } else {
+                bgph = bg_pos_h;
+            }
+            st += 'background-position: ' + bgpw + ' ' + bgph + ";\n";
+        }
+
+        st += '}';
+        styleElement.appendChild( document.createTextNode( st ) );
+        document.getElementsByTagName('head')[0].appendChild( styleElement );
     }
+
+
+
 };
