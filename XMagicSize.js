@@ -7,135 +7,134 @@ var XMagicSize = {
         this.Container = _Container;
     },
     'run' : function() {
-        //alert( document.documentElement.clientWidth );
-        var xs = document.documentElement.clientWidth / this.Raw_Width;
+        var xs = ( document.documentElement.clientWidth ) / ( this.Raw_Width );
         $(this.Container).find('*').each( function() {
-            var br = parseInt( $(this).attr('br') );
+            var br = parseFloat( $(this).attr('br') );
             if( $.isNumeric( br ) ) {
-                $(this).css('border-radius', parseInt( br * xs ) + 'px' );
+                $(this).css('border-radius', parseFloat( br * xs ) + 'px' );
             }
-            var lh = parseInt( $(this).attr('lh') );
+            var lh = parseFloat( $(this).attr('lh') );
             if( $.isNumeric( lh ) ) {
-                $(this).css('line-height', parseInt( lh * xs ) + 'px' );
+                $(this).css('line-height', parseFloat( lh * xs ) + 'px' );
             }
-            var fs = parseInt( $(this).attr('fs') );
+            var fs = parseFloat( $(this).attr('fs') );
             if( $.isNumeric( fs ) ) {
-                $(this).css('font-size', parseInt( fs * xs ) + 'px' );
+                $(this).css('font-size', parseFloat( fs * xs ) + 'px' );
             }
 
-            var rp = parseInt( $(this).attr('rp') );
+            var rp = parseFloat( $(this).attr('rp') );
             if( $.isNumeric( rp ) ) {
-                $(this).css('padding', parseInt( rp * xs ) + 'px' );
+                $(this).css('padding', parseFloat( rp * xs ) + 'px' );
             }
 
-            var pl = parseInt( $(this).attr('pl') );
+            var pl = parseFloat( $(this).attr('pl') );
             if( $.isNumeric( pl ) ) {
-                $(this).css('padding-left', parseInt( pl * xs ) + 'px' );
+                $(this).css('padding-left', parseFloat( pl * xs ) + 'px' );
             }
 
-            var pt = parseInt( $(this).attr('pt') );
+            var pt = parseFloat( $(this).attr('pt') );
             if( $.isNumeric( pt ) ) {
-                $(this).css('padding-top', parseInt( pt * xs ) + 'px' );
+                $(this).css('padding-top', parseFloat( pt * xs ) + 'px' );
             }
 
-            var pr = parseInt( $(this).attr('pr') );
+            var pr = parseFloat( $(this).attr('pr') );
             if( $.isNumeric( pr ) ) {
-                $(this).css('padding-right', parseInt(  pr * xs ) + 'px' );
+                $(this).css('padding-right', parseFloat(  pr * xs ) + 'px' );
             }
 
-            var pb = parseInt( $(this).attr('pb') );
+            var pb = parseFloat( $(this).attr('pb') );
             if( $.isNumeric( pb ) ) {
-                $(this).css('padding-bottom', parseInt( pb * xs ) + 'px' );
+                $(this).css('padding-bottom', parseFloat( pb * xs ) + 'px' );
             }
 
-            var rm = parseInt( $(this).attr('rm') );
+            var rm = parseFloat( $(this).attr('rm') );
             if( $.isNumeric( rm ) ) {
-                $(this).css('margin', parseInt( rm * xs ) + 'px' );
+                $(this).css('margin', parseFloat( rm * xs ) + 'px' );
             }
 
-            var ml = parseInt( $(this).attr('ml') );
+            var ml = parseFloat( $(this).attr('ml') );
             if( $.isNumeric( ml ) ) {
-                $(this).css('margin-left', parseInt( ml * xs ) + 'px');
+                $(this).css('margin-left', parseFloat( ml * xs ) + 'px');
             }
 
-            var mt = parseInt( $(this).attr('mt') + 'px' );
+            var mt = parseFloat( $(this).attr('mt') + 'px' );
             if( $.isNumeric( mt ) ) {
-                $(this).css('margin-top', parseInt( mt * xs ) + 'px' );
+                $(this).css('margin-top', parseFloat( mt * xs ) + 'px' );
             }
 
-            var mr = parseInt( $(this).attr('mr') );
+            var mr = parseFloat( $(this).attr('mr') );
             if( $.isNumeric( mr ) ) {
-                $(this).css('margin-right', parseInt( mr * xs ) + 'px' );
+                $(this).css('margin-right', parseFloat( mr * xs ) + 'px' );
             }
 
-            var mb = parseInt( $(this).attr('mb') );
+            var mb = parseFloat( $(this).attr('mb') );
             if( $.isNumeric( mb ) ) {
-                $(this).css('margin-bottom', parseInt( mb * xs ) + 'px' );
+                $(this).css('margin-bottom', parseFloat( mb * xs ) + 'px' );
             }
 
-            var rw = parseInt( $(this).attr('rw') );
+            var rw = parseFloat( $(this).attr('rw') );
             if( $.isNumeric( rw ) ) {
-                $(this).css('width', parseInt( rw * xs ) + 'px' );
+                $(this).css('width', parseFloat( rw * xs ) + 'px' );
             }
 
-            var rh = parseInt( $(this).attr('rh') );
+            var rh = parseFloat( $(this).attr('rh') );
             if( $.isNumeric( rh ) ) {
-                $(this).css('height', parseInt( rh * xs ) + 'px' );
+                $(this).css('height', parseFloat( rh * xs ) + 'px' );
             }
 
-            var rl = parseInt( $(this).attr('rl') );
+            var rl = parseFloat( $(this).attr('rl') );
             if( $.isNumeric( rl ) ) {
-                $(this).css('left', parseInt( rl * xs ) + 'px' );
+                $(this).css('left', parseFloat( rl * xs ) + 'px' );
             }
 
-            var rt = parseInt( $(this).attr('rt') );
+            var rt = parseFloat( $(this).attr('rt') );
             if( $.isNumeric( rt ) ) {
-                $(this).css('top', parseInt( rt * xs ) + 'px' );
+                $(this).css('top', parseFloat( rt * xs ) + 'px' );
             }
 
-            var rr = parseInt( $(this).attr('rr') );
+            var rr = parseFloat( $(this).attr('rr') );
             if( $.isNumeric( rr ) ) {
-                $(this).css('right', parseInt( rr * xs ) + 'px' );
+                $(this).css('right', parseFloat( rr * xs ) + 'px' );
             }
 
-            var rb = parseInt( $(this).attr('rb') );
+            var rb = parseFloat( $(this).attr('rb') );
             if( $.isNumeric( rb ) ) {
-                $(this).css('bottom', parseInt(  rb * xs ) + 'px' );
+                $(this).css('bottom', parseFloat(  rb * xs ) + 'px' );
             }
 
             //----------------------------------------------
-            var ls = parseInt( $(this).attr('ls') );
+            var ls = parseFloat( $(this).attr('ls') );
             if( $.isNumeric( ls ) ) {
-                $(this).css('letter-spacing', parseInt( ls * xs ) + 'px' );
+                $(this).css('letter-spacing', parseFloat( ls * xs ) + 'px' );
             }
 
             //百分比
-            var bsw = parseInt( $(this).attr('bsw') );
-            var bsh = parseInt( $(this).attr('bsh') );
+            var bsw = parseFloat( $(this).attr('bsw') );
+            var bsh = parseFloat( $(this).attr('bsh') );
             if( $.isNumeric( bsw ) || $.isNumeric( bsh )  ) {
-                bsw = $.isNumeric( bsw ) ? parseInt( bsw * xs ) + '%' : 'auto';
-                bsh = $.isNumeric( bsh ) ? parseInt( bsw * xs ) + '%' : 'auto';
+                bsw = $.isNumeric( bsw ) ? parseFloat( bsw * xs ) + '%' : 'auto';
+                bsh = $.isNumeric( bsh ) ? parseFloat( bsw * xs ) + '%' : 'auto';
                 console.log( 'bsw=' + bsw );
                 console.log( 'bsh=' + bsh );
                 $(this).css('background-size', bsw + ' ' + bsh );
             }
 
             //4个角 分开圆角处理
-            var btlr = parseInt( $(this).attr('btlr') ); //border-top-left-radius
+            var btlr = parseFloat( $(this).attr('btlr') ); //border-top-left-radius
             if( $.isNumeric( btlr ) ) {
-                $(this).css('border-top-left-radius', parseInt( btlr * xs ) + 'px' );
+                $(this).css('border-top-left-radius', parseFloat( btlr * xs ) + 'px' );
             }
-            var btrr = parseInt( $(this).attr('btrr') ); //border-top-right-radius
+            var btrr = parseFloat( $(this).attr('btrr') ); //border-top-right-radius
             if( $.isNumeric( btrr ) ) {
-                $(this).css('border-top-right-radius', parseInt( btrr * xs ) + 'px' );
+                $(this).css('border-top-right-radius', parseFloat( btrr * xs ) + 'px' );
             }
-            var bblr = parseInt( $(this).attr('bblr') ); //border-bottom-left-radius
+            var bblr = parseFloat( $(this).attr('bblr') ); //border-bottom-left-radius
             if( $.isNumeric( bblr ) ) {
-                $(this).css('border-bottom-left-radius', parseInt( bblr * xs ) + 'px' );
+                $(this).css('border-bottom-left-radius', parseFloat( bblr * xs ) + 'px' );
             }
-            var bbrr = parseInt( $(this).attr('bbrr') ); //border-bottom-right-radius
+            var bbrr = parseFloat( $(this).attr('bbrr') ); //border-bottom-right-radius
             if( $.isNumeric( bbrr ) ) {
-                $(this).css('border-bottom-right-radius', parseInt( bbrr * xs ) + 'px' );
+                $(this).css('border-bottom-right-radius', parseFloat( bbrr * xs ) + 'px' );
             }
 
             var bgimg = $(this).attr('bgimg');
@@ -147,8 +146,8 @@ var XMagicSize = {
             var bgwpx = $(this).attr('bgwpx');
             var bghpx = $(this).attr('bghpx');
             if( $.isNumeric( bgwpx ) || $.isNumeric( bghpx ) ) {
-                var strw = $.isNumeric( bgwpx ) ? parseInt( bgwpx * xs ).toString() + 'px' : 'auto'; 
-                var strh = $.isNumeric( bghpx ) ? parseInt( bghpx * xs ).toString() + 'px' : 'auto';
+                var strw = $.isNumeric( bgwpx ) ? parseFloat( bgwpx * xs ).toString() + 'px' : 'auto'; 
+                var strh = $.isNumeric( bghpx ) ? parseFloat( bghpx * xs ).toString() + 'px' : 'auto';
                 $(this).css('background-size', strw + ' ' + strh );
             }
 
@@ -157,12 +156,12 @@ var XMagicSize = {
             var strl, strt;
             if( bglpx || bgtpx ) {
                 if( $.isNumeric( bglpx ) ) {
-                    strl = parseInt( bglpx * xs ) + 'px'; 
+                    strl = parseFloat( bglpx * xs ) + 'px'; 
                 } else {
                     strl = bglpx; 
                 }
                 if( $.isNumeric( bgtpx ) ) {
-                    strt = parseInt( bgtpx * xs ) + 'px'; 
+                    strt = parseFloat( bgtpx * xs ) + 'px'; 
                 } else {
                     strt = bgtpx;
                 }
@@ -179,7 +178,7 @@ var XMagicSize = {
             if( $.isNumeric( maxw ) || $.isNumeric( maxw ) ) {
                 $(this).css('max-width', maxw * xs + 'px' );
             }
-            var maxh = $(this).attr('rh-max');
+            var maxh = $(this).attr('q');
             if( $.isNumeric( maxh ) || $.isNumeric( maxh ) ) {
                 $(this).css('max-height', maxh * xs + 'px' );
             }
@@ -211,25 +210,25 @@ var XMagicSize = {
             }
 
             //border-width
-            var rbw = parseInt( $(this).attr('rbw') );
+            var rbw = parseFloat( $(this).attr('rbw') );
             if( $.isNumeric( rbw ) ) {
-                $(this).css('border-width', parseInt( rbw * xs ) + 'px' );
+                $(this).css('border-width', parseFloat( rbw * xs ) + 'px' );
             }
 
             //多列宽度
-            var cgap = parseInt( $(this).attr('cgap') );
+            var cgap = parseFloat( $(this).attr('cgap') );
             if( $.isNumeric( cgap ) ) {
-                $(this).css('-moz-column-gap', parseInt( cgap * xs ) + 'px' );
-                $(this).css('-webkit-column-gap', parseInt( cgap * xs ) + 'px' );
-                $(this).css('column-gap', parseInt( cgap * xs ) + 'px' );
+                $(this).css('-moz-column-gap', parseFloat( cgap * xs ) + 'px' );
+                $(this).css('-webkit-column-gap', parseFloat( cgap * xs ) + 'px' );
+                $(this).css('column-gap', parseFloat( cgap * xs ) + 'px' );
             }
 
             //属性计算  
-            var calcnum = parseInt( $(this).attr('data-calcnum') );
+            var calcnum = parseFloat( $(this).attr('data-calcnum') );
             if( $.isNumeric( calcnum ) ) {
                 for( var i=0; i<calcnum; i++ ) {
                     var attrname = 'data-calc' + i;
-                    var v = parseInt( $(this).attr(attrname) );
+                    var v = parseFloat( $(this).attr(attrname) );
                     if( $.isNumeric( calcnum ) ) {
                         $(this).attr( attrname, v * xs );
                     }
@@ -243,7 +242,7 @@ var XMagicSize = {
     },
     'calc' : function( val ) {
         var xs = document.documentElement.clientWidth / this.Raw_Width;
-        return parseInt( val * xs );
+        return parseFloat( val * xs );
     },
     'tostylesheet' : function( selector ) {
         var xs = document.documentElement.clientWidth / this.Raw_Width;
@@ -255,13 +254,16 @@ var XMagicSize = {
         if( name.length < 1 ) {
             return;
         }
-        styleElement = document.createElement('style');
-        styleElement.type = 'text/css';
-        var st = name + ' {';
         
+        var st = name + ' {';
+        var st = '';
         var attrmap = {
             'data-width'    : 'width',
+            'data-maxw'     : 'max-width',
+            'data-minw'     : 'min-width',
             'data-height'   : 'height',
+            'data-maxh'     : 'max-height',
+            'data-minh'     : 'min-height',
             'data-padding'  : 'padding',
             'data-pl'       : 'padding-left',
             'data-pr'       : 'padding-right',
@@ -273,6 +275,7 @@ var XMagicSize = {
             'data-mt'       : 'margin-top',
             'data-mb'       : 'margin-bottom',
             'data-lh'       : 'line-height',
+            'data-ls'       : 'letter-spacing',
             'data-fs'       : 'font-size',
             'data-rl'       : 'left',
             'data-rr'       : 'right',
@@ -285,7 +288,8 @@ var XMagicSize = {
             'data-bbrr'     : 'border-bottom-right-radius',
             'data-color'    : 'color',    
             'data-position' : 'position',    
-            'data-bgpos'    : 'background-position',    
+            'data-bgpos'    : 'background-position',   
+            'data-bw'       : 'border-width',    
             'none' : ''
         };
         for( k in attrmap ) {
@@ -293,11 +297,11 @@ var XMagicSize = {
             var val = el.attr(k);    
             if( typeof( val ) != 'undefined' ) {
                 if( val.toString().indexOf('%') != -1 ) {
-                    st += attrmap[k] + ' : ' + parseInt( val ) * xs + "%;\n";
+                    st += attrmap[k] + ' : ' + parseFloat( val ) * xs + "%;";
                 } else if( $.isNumeric( val ) ) {
-                    st += attrmap[k] + ' : ' + parseInt( val ) * xs + "px;\n";
+                    st += attrmap[k] + ' : ' + parseFloat( val ) * xs + "px;";
                 } else {
-                    st += attrmap[k] + ' : ' + val + "\n";
+                    st += attrmap[k] + ' : ' + val + ";";
                 }
             }
         }
@@ -308,21 +312,21 @@ var XMagicSize = {
         var bg_size_h = el.attr('data-bgsize-h');
         if(  typeof( bg_size_w ) != 'undefined' && typeof( bg_size_h ) != 'undefined' ) {
             if( bg_size_w.toString().indexOf('%') != -1 ) {
-                bgw = parseInt( bg_size_w ) * xs + "%";
+                bgw = parseFloat( bg_size_w ) * xs + "%";
             } else if( $.isNumeric( bg_size_w ) ) {
-                bgw = parseInt( bg_size_w ) * xs + "px";
+                bgw = parseFloat( bg_size_w ) * xs + "px";
             } else {
                 bgw = bg_size_w;
             }    
         
             if( bg_size_h.toString().indexOf('%') != -1 ) {
-                bgh = parseInt( bg_size_h ) * xs + "%";
+                bgh = parseFloat( bg_size_h ) * xs + "%";
             } else if( $.isNumeric( bg_size_h ) ) {
-                bgh = parseInt( bg_size_h ) * xs + "px";
+                bgh = parseFloat( bg_size_h ) * xs + "px";
             } else {
                 bgh = bg_size_h;
             }    
-            st += 'background-size: ' + bgw + ' ' + bgh + ";\n";
+            st += 'background-size: ' + bgw + ' ' + bgh + ";";
         }
         
         //background-position
@@ -331,28 +335,56 @@ var XMagicSize = {
         var bg_pos_h = el.attr('data-bgpos-h');
         if(  typeof( bg_pos_w ) != 'undefined' && typeof( bg_pos_h ) != 'undefined' ) {
             if( bg_pos_w.toString().indexOf('%') != -1 ) {
-                bgpw = parseInt( bg_pos_w ) * xs + "%";
+                bgpw = parseFloat( bg_pos_w ) * xs + "%";
             } else if( $.isNumeric( bg_pos_w ) ) {
-                bgpw = parseInt( bg_pos_w ) * xs + "px";
+                bgpw = parseFloat( bg_pos_w ) * xs + "px";
             } else {
                 bgpw = bg_pos_w;
             }   
             
             if( bg_pos_h.toString().indexOf('%') != -1 ) {
-                bgph = parseInt( bg_pos_h ) * xs + "%";
+                bgph = parseFloat( bg_pos_h ) * xs + "%";
             } else if( $.isNumeric( bg_pos_h ) ) {
-                bgph = parseInt( bg_pos_h ) * xs + "px";
+                bgph = parseFloat( bg_pos_h ) * xs + "px";
             } else {
                 bgph = bg_pos_h;
             }
-            st += 'background-position: ' + bgpw + ' ' + bgph + ";\n";
+            st += 'background-position: ' + bgpw + ' ' + bgph + ";";
         }
 
-        st += '}';
-        styleElement.appendChild( document.createTextNode( st ) );
-        document.getElementsByTagName('head')[0].appendChild( styleElement );
+        //static css attributes
+        var staticcss = el.attr('data-static-css');
+        if( staticcss ) {
+            st += staticcss; 
+        }
+
+        var strid = $.trim( el.attr('data-id') );
+        if( typeof( strid ) == 'undefined' || strid == '' || !document.getElementById( strid ) ) {
+            var styleElement = document.createElement('style');
+            styleElement.type = 'text/css';
+            styleElement.id = strid;
+            styleElement.appendChild( document.createTextNode( name + ' {' + st + '}' ) );
+            document.getElementsByTagName('head')[0].appendChild( styleElement );
+        } else {
+            var styleElement = document.getElementById( strid ),
+                rules = styleElement.sheet.cssRules,
+                curst = null;
+            for( var i=0; i<rules.length; i++ ) {
+                if( rules[i].selectorText == name ) {
+                    console.log( 'find exists rules' );
+                    curst = rules[i].style;
+                }
+            }
+            var arr = st.split(';');
+            for( d in arr ) {
+                if( $.trim( arr[d] ).length > 0 ) {
+                    var csskv = arr[d].split(':');
+                    if( csskv.length == 2 ) {
+                        curst[$.trim(csskv[0])] = $.trim(csskv[1]);
+                    }
+                }
+            }
+        }
+        el.remove();
     }
-
-
-
 };
